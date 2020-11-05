@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Yelp from '../../unit/Yelp.js';
 
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
