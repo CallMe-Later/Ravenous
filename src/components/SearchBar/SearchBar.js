@@ -2,7 +2,6 @@ import React from 'react';
 import './SearchBar.css';
 
 
-
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,7 @@ class SearchBar extends React.Component {
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
-    this.renderSortByOptions = this.renderSortByOptions.bind(this);
+
 
     this.sortByOptions = {
       "Best Match": 'best_match',
