@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Yelp from '../../until/Yelp.js';
+import Yelp from '../../untill/Yelp.js';
 
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
@@ -12,13 +12,15 @@ import SearchBar from '../SearchBar/SearchBar';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { businessArray: [] };
+    this.state = { businesses: [] };
     this.searchYelp = this.searchYelp.bind(this);
     }
 
 
   searchYelp (term, location, sortBy) {
-    Yelp.search(term, location, sortBy);
+    Yelp.search(term, location, sortBy).then(businesses => {
+      this.setState({ businesses: businesses })
+    });
   }
 
   render(){
@@ -26,7 +28,7 @@ class App extends React.Component {
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar searchYelp={this.searchYelp} />
-        <BusinessList businesses={businessArray} />
+        <BusinessList businesses={this.state.businesses} />
       </div>
     );
   }
